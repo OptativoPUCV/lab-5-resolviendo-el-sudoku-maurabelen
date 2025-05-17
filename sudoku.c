@@ -98,6 +98,8 @@ List* get_adj_nodes(Node* n){
                 //le damos el contenido actual del nodo n al nuevo nodo
                 *new_node = *n;
                 //colocamos el numero en la casilla del nodo
+                new_node->sudo[i][k] = num;
+                //agregamos el nodo a la lista
                 pushBack(list, new_node);
               }
             }
