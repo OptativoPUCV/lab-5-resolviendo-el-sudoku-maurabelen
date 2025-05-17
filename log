@@ -115,3 +115,22 @@ test.c:7:8: warning: '_strdup' redeclared without dllimport attribute: previous 
     7 | char * _strdup(const char * str) {
       |        ^~~~~~~
 7237218
+Fri, May 16, 2025  9:54:28 PM: 
+Compilation failed
+In file included from test.c:5:
+sudoku.c: In function 'print_node':
+sudoku.c:37:9: warning: unused variable 'i' [-Wunused-variable]
+   37 |     int i,j;
+      |         ^
+sudoku.c: In function 'is_valid':
+sudoku.c:72:18: error: invalid type argument of '->' (have 'int')
+   72 |       int num = n->sudo[n][j];
+      |                  ^~
+sudoku.c:71:11: warning: variable 'j' set but not used [-Wunused-but-set-variable]
+   71 |       int j = 3 * (i % 3) + (k % 3);
+      |           ^
+test.c: At top level:
+test.c:7:8: warning: '_strdup' redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
+    7 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+1a80966
