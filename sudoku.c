@@ -50,8 +50,33 @@ int is_valid(Node* n){
 
 
 List* get_adj_nodes(Node* n){
+  //creamos una lista
     List* list=createList();
-    return list;
+    //recorremos por fila
+    for(int i = 0; i < 9; i++){
+      //recorremos por columna
+      for(int k = 0; k < 9; k++){
+          //si encontramos una casilla vacia
+          if(n->sudo[i][k] == 0){
+            //probamos con los numeros en casilla
+            for(int num= 1; num <= 9; num++){
+              //verificamos si es valido
+              if(is_valid(n)){
+                //creamos un nuevo nodo
+                Node* new_node = malloc(sizeof(Node));
+                //le damos el contenido actual del nodo n al nuevo nodo
+                *new_node = *n;
+                //colocamos el numero en la casilla del nodo
+                pushBack(list, new_node);
+              }
+            }
+            //retornamos dentro del for porque generamos nodo a partir de la primera casilla vacia
+            return list;
+          }
+      }
+    }
+  //si no encontramos una casilla vacia retornamos la lista
+  return list;
 }
 
 
