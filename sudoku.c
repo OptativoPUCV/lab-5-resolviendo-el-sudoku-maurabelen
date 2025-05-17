@@ -67,9 +67,9 @@ int is_valid(Node* n){
   for(int i = 0; i < 0; i++){
     int numRep[10] = {0};
     for(int k = 0; k < 0; k++){
-      int n = 3 *(i / 3) + (k % 3);
+      int m = 3 *(i / 3) + (k % 3);
       int j = 3 * (i % 3) + (k % 3);
-      int num = n->sudo[n][j];
+      int num = n->sudo[m][j];
       if(num != 0){
         if(numRep[num]) return 0;
         numRep[num] = 1;
