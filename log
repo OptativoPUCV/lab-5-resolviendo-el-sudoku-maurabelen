@@ -134,3 +134,15 @@ test.c:7:8: warning: '_strdup' redeclared without dllimport attribute: previous 
     7 | char * _strdup(const char * str) {
       |        ^~~~~~~
 1a80966
+Fri, May 16, 2025  9:55:11 PM: 
+Compilation failed
+In file included from test.c:5:
+sudoku.c: In function 'is_valid':
+sudoku.c:72:18: error: invalid type argument of '->' (have 'int')
+   72 |       int num = n->sudo[n][j];
+      |                  ^~
+test.c: At top level:
+test.c:7:8: warning: '_strdup' redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
+    7 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+f39c272
