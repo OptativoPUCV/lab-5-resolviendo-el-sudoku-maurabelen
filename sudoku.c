@@ -65,20 +65,27 @@ int is_valid(Node* n){
   for(int m = 0; m < 9; m++){
     //creamos un arreglo 
     int numRep[10] = {0};
-    for(int l = 0; l < 0; l++){
+    //recorremos las filas de la columna
+    for(int l = 0; l < 9; l++){
       int num = n->sudo[l][m];
+      //si el numero no es 0
       if(num != 0){
         if(numRep[num]) return 0;
         numRep[num] = 1;
       }
     }
   }
+  //recorremos los 9 cuadrados, cada uno es un indice 
   for(int i = 0; i < 9; i++){
     int numRep[10] = {0};
+    //creamo un arreglo para ver si un numero ya aparecio en el subcuadro
     for(int k = 0; k < 9; k++){
-      int m = 3 *(i / 3) + (k / 3);
-      int j = 3 * (i % 3) + (k % 3);
+      //creamos m y j que son la fila y columna dentro del tablero 
+      int m = 3 *(i / 3) + (k / 3); // fila
+      int j = 3 * (i % 3) + (k % 3); //columna
+      //obtenemos la posicion en el sudoku
       int num = n->sudo[m][j];
+      //si ya esta en el subcuadro, el sudoku es invalido
       if(num != 0){
         if(numRep[num]) return 0;
         numRep[num] = 1;
