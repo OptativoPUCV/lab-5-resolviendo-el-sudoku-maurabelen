@@ -44,30 +44,39 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
+  //recorremos cada fila
+  for(int i = 0; i < 9; i++){
+    //se crea el arreglo para regristrar un numero del 1 al 9
+    int numRep[10] = {0};
+    //recorre cada calumna de la fila actual
+    for(int k = 0; k < 9; k++){
+      //obtenemos el numero de la celda
+      int num = n->sudo[i][k];
+      //si la celda no esta vacia
+      if(num != 0){
+        //si el numero ya aparecio en esta fila, es invalido
+        if(numRep[num]) return 0;
+        //marcamos el nunero como visto
+        numRep[num] = 1;
+      }
+    }
+  }
+  //recorremos las columnas 
+  for(int m = 0; m < 9; m++){
+    //creamos un arreglo 
+    int numRep[10] = {0};
+    for(int l = 0; l < 0; l++){
+      int num = n->sudo[l][m];
+      if(num != 0){
+        if(numRep[num]) return 0;
+        numRep[num] = 1;
+      }
+    }
+  }
   for(int i = 0; i < 9; i++){
     int numRep[10] = {0};
     for(int k = 0; k < 9; k++){
-      int num = n->sudo[i][k];
-      if(num != 0){
-        if(numRep[num]) return 0;
-        numRep[num] = 1;
-      }
-    }
-  }
-  for(int m = 0; m < 0; m++){
-    int numRep[10] = {0};
-    for(int l = 0; l < 0; l++){
-      int num = n->sudo[m][l];
-      if(num != 0){
-        if(numRep[num]) return 0;
-        numRep[num] = 1;
-      }
-    }
-  }
-  for(int i = 0; i < 0; i++){
-    int numRep[10] = {0};
-    for(int k = 0; k < 0; k++){
-      int m = 3 *(i / 3) + (k % 3);
+      int m = 3 *(i / 3) + (k / 3);
       int j = 3 * (i % 3) + (k % 3);
       int num = n->sudo[m][j];
       if(num != 0){
