@@ -107,16 +107,17 @@ List* get_adj_nodes(Node* n){
           if(n->sudo[i][k] == 0){
             //probamos con los numeros en casilla
             for(int num= 1; num <= 9; num++){
-              //verificamos si es valido
-              if(is_valid(n)){
-                //creamos un nuevo nodo
-                Node* new_node = malloc(sizeof(Node));
-                //le damos el contenido actual del nodo n al nuevo nodo
-                *new_node = *n;
-                //colocamos el numero en la casilla del nodo
-                new_node->sudo[i][k] = num;
-                //agregamos el nodo a la lista
-                pushBack(list, new_node);
+              //creamos un nuevo nodo
+              Node* new_node = malloc(sizeof(Node));
+              //le damos el contenido actual del nodo n al nuevo nodo
+              *new_node = *n;
+              //colocamos el numero en la casilla del nodo
+              new_node->sudo[i][k] = num;
+              // Verificamos si el nuevo nodo es válido
+              if (is_valid(new_node)) {
+              pushBack(list, new_node);
+              } else {
+              free(new_node); // si no es válido, liberamos la memoria
               }
             }
             //retornamos dentro del for porque generamos nodo a partir de la primera casilla vacia
