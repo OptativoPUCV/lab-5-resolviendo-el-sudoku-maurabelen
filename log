@@ -89,3 +89,17 @@ test.c:262:1: error: expected declaration or statement at end of input
   262 | }
       | ^
 6cd3c75
+Fri, May 16, 2025  9:51:22 PM: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+sudoku.c: In function 'is_valid':
+sudoku.c:72:18: error: invalid type argument of '->' (have 'int')
+   72 |       int num = n->sudo[n][j];
+      |                  ^~
+test.c: At top level:
+test.c:7:8: warning: '_strdup' redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
+    7 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+cd3928b
