@@ -61,3 +61,31 @@ test.c:7:8: warning: '_strdup' redeclared without dllimport attribute: previous 
     7 | char * _strdup(const char * str) {
       |        ^~~~~~~
 95939e3
+Fri, May 16, 2025  9:50:30 PM: 
+ sudoku.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+Compilation failed
+In file included from test.c:5:
+sudoku.c: In function 'is_valid':
+sudoku.c:58:24: error: expected '}' before ';' token
+   58 |     int numRep[10] = {0;
+      |                      ~ ^
+sudoku.c:67:3: error: expected ',' or ';' before 'for'
+   67 |   for(int i = 0; i < 0; i++){
+      |   ^~~
+sudoku.c:67:18: error: 'i' undeclared (first use in this function)
+   67 |   for(int i = 0; i < 0; i++){
+      |                  ^
+sudoku.c:67:18: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:67:28: error: expected ';' before ')' token
+   67 |   for(int i = 0; i < 0; i++){
+      |                            ^
+      |                            ;
+sudoku.c:67:28: error: expected statement before ')' token
+sudoku.c:72:18: error: invalid type argument of '->' (have 'int')
+   72 |       int num = n->sudo[n][j];
+      |                  ^~
+test.c:262:1: error: expected declaration or statement at end of input
+  262 | }
+      | ^
+6cd3c75
