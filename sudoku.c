@@ -172,6 +172,7 @@ Node* DFS(Node* initial, int* cont) {
       //avanzamos al siguiente nodo de la lista
       actual = next(lista);
     }
+    //aumentanos el contador
     (*cont)++;
   }
 
