@@ -139,9 +139,34 @@ int is_final(Node* n){
   return 1; // no hay ceros, es un nodo final
 }
 
-Node* DFS(Node* initial, int* cont){
+Node* DFS(Node* initial, int* cont) {
+  //creamos una pila
+  Stack* S = createStack();
+  if (!S) return NULL;
+  //insertamos el nodo en la pila
+  push(S, initial);
+  //el contador en 0
+  *cont = 0;
+  while(!is_empty(S)){
+    Node * encont= top(S);
+    pop(S);
+    
+    if(is_final(encont)){
+      return encont;
+    }
+    List *lista = get_adj_nodes(encont);
+    Node *actual = first(lista);
+
+    while(actual != NULL){
+      push(S, actual);
+      actual = next(lista);
+    }
+  }
+  (*cont)++;
+
   return NULL;
 }
+
 
 
 
